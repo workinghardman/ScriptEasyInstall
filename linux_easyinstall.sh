@@ -49,6 +49,7 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]
 fi
 
 #Check if current user is allowd to sudo
+sudo -v
 A=$(sudo -n -v 2>&1);test -z "$A" || echo $A|grep -q asswor
 if [[ "$A" == "" ]]; then
         echo "user allowed to run Sudo"
