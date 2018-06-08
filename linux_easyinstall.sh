@@ -1,8 +1,21 @@
 #!/bin/bash
-# Linux_Easyinstall.sh
+# linux_easyinstall.sh
 # Version 0.1
 # Date : 06.06.2018
 # This script will install a CRC Hot Wallet Masternode in the default folder location
+
+#Chekcing OS version
+version=$(lsb_release -sr)
+
+#check for version of ubuntu
+if [ $version == '16.04' ]
+then
+  echo "Running Ubuntu 16.04 : OK"
+else
+  echo "This script should be run on Ubuntu 16.04 only !" 
+ exit 1
+fi
+
 
 ADD_SWAP=N
 GITHUB_DL=https://github.com/crowdcoinChain/Crowdcoin/releases/download/1.1.0/Crowdcoin_command_line_binaries_linux_1.1.tar.gz
@@ -111,7 +124,7 @@ virtualenv ./venv
 sed -i -e 's/dash_conf=\/home\/YOURUSERNAME\/\.crowdcoincore\/crowdcoin\.conf/dash_conf=~\/\.crowdcoincore\/crowdcoin.conf/g' sentinel.conf
 
 cd ~
-sudo apt-get install libzmq4-dev libminiupnpc-dev libssl-dev libevent-dev -y
+sudo apt-get install libzmq3-dev libminiupnpc-dev libssl-dev libevent-dev -y
 sudo apt-get install build-essential libtool autotools-dev automake pkg-config -y
 sudo apt-get install libssl-dev libevent-dev bsdmainutils software-properties-common -y
 sudo apt-get install libboost-all-dev -y
