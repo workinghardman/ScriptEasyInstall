@@ -1,8 +1,46 @@
 #!/bin/bash
-# Linux_Easyinstall.sh
+# linux_easyinstall.sh
 # Version 0.1
 # Date : 06.06.2018
 # This script will install a CRC Hot Wallet Masternode in the default folder location
+
+if [ -f /etc/os-release ]; then
+    # freedesktop.org and systemd
+    . /etc/os-release
+    OS=$NAME
+    VER=$VERSION_ID
+elif type lsb_release >/dev/null 2>&1; then
+    # linuxbase.org
+    OS=$(lsb_release -si)
+    VER=$(lsb_release -sr)
+elif [ -f /etc/lsb-release ]; then
+    # For some versions of Debian/Ubuntu without lsb_release command
+    . /etc/lsb-release
+    OS=$DISTRIB_ID
+    VER=$DISTRIB_RELEASE
+elif [ -f /etc/debian_version ]; then
+    # Older Debian/Ubuntu/etc.
+    OS=Debian
+    VER=$(cat /etc/debian_version)
+elif [ -f /etc/SuSe-release ]; then
+    # Older SuSE/etc.
+    ...
+elif [ -f /etc/redhat-release ]; then
+    # Older Red Hat, CentOS, etc.
+    ...
+else
+    # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
+    OS=$(uname -s)
+    VER=$(uname -r)
+fi
+
+if [ "$OS" == "Ubuntu" ] && [ "$VER" == "16.04" ]; then
+  echo "$OS $VER : OK"
+else
+  echo "This script should be run on Ubuntu 16.04 only"
+  exit 1
+fi
+
 
 ADD_SWAP=N
 GITHUB_DL=https://github.com/crowdcoinChain/Crowdcoin/releases/download/1.1.0/Crowdcoin_command_line_binaries_linux_1.1.tar.gz
@@ -111,7 +149,7 @@ virtualenv ./venv
 sed -i -e 's/dash_conf=\/home\/YOURUSERNAME\/\.crowdcoincore\/crowdcoin\.conf/dash_conf=~\/\.crowdcoincore\/crowdcoin.conf/g' sentinel.conf
 
 cd ~
-sudo apt-get install libzmq4-dev libminiupnpc-dev libssl-dev libevent-dev -y
+sudo apt-get install libzmq3-dev libminiupnpc-dev libssl-dev libevent-dev -y
 sudo apt-get install build-essential libtool autotools-dev automake pkg-config -y
 sudo apt-get install libssl-dev libevent-dev bsdmainutils software-properties-common -y
 sudo apt-get install libboost-all-dev -y
