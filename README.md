@@ -9,6 +9,8 @@
 Log in your vps and then run the following commands
 
 ```
-wget https://github.com/crowdcoinChain/ScriptEasyInstall/blob/master/linux_easyinstall.sh
+sudo apt-get install git
+git clone https://github.com/crowdcoinChain/ScriptEasyInstall
+cd ScriptEasyInstall
 bash linux_easyinstall.sh
 ```
