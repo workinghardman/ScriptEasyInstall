@@ -149,6 +149,7 @@ virtualenv ./venv
 sed -i -e 's/dash_conf=\/home\/YOURUSERNAME\/\.crowdcoincore\/crowdcoin\.conf/dash_conf=~\/\.crowdcoincore\/crowdcoin.conf/g' sentinel.conf
 
 cd ~
+sudo apt-get install pwgen
 sudo apt-get install libzmq3-dev libminiupnpc-dev libssl-dev libevent-dev -y
 sudo apt-get install build-essential libtool autotools-dev automake pkg-config -y
 sudo apt-get install libssl-dev libevent-dev bsdmainutils software-properties-common -y
@@ -188,7 +189,7 @@ rpcpassword=${rpcpass}" >> crowdcoin.conf
 cd ~/Crowdcoin_command_line_binaries_linux_1.1
 echo "Starting Crowdcoind from $PWD"
 ./crowdcoind -daemon
-sleep 5
+sleep 10
 crowdcoinGetInfoOutput=$(./crowdcoin-cli getinfo)
 while [[ ! ($crowdcoinGetInfoOutput = *"version"*) ]]; do
 	sleep 10
