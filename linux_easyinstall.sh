@@ -208,13 +208,15 @@ sleep 10
 #write all data into ../crowdcoind
 locateCrowdCoinConf=~/.crowdcoincore/crowdcoin.conf
 echo "rpcallowip=127.0.0.1
-rpcport=19470
+rpcport=$RPCPORT
 rpcthreads=8
 listen=1
 server=1
 daemon=1
 staking=0
 discover=1
+masternode=1
+masternodeprivkey=$masternodeGenKey" 
 addnode=96.126.124.245
 addnode=121.200.4.203
 addnode=188.165.52.69
@@ -227,9 +229,8 @@ addnode=18.217.78.145:12875
 addnode=23.92.30.230:12875
 addnode=35.190.182.68:12875
 addnode=80.209.236.4:12875
-addnode=91.201.40.89:12875
-masternode=1
-masternodeprivkey=$masternodeGenKey" >> $locateCrowdCoinConf
+addnode=91.201.40.89:12875 >> $locateCrowdCoinConf
+
 echo "Configuration $locateCrowdCoinConf updated."
 echo " Waiting 60 seconds before restarting..."
 sleep 60
