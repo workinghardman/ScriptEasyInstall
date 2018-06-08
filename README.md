@@ -4,3 +4,11 @@
 
 - remove_all.sh is the script that remove all folders/files that have to be removed to start a clean installation
 
+#INSTALL
+
+Log in your vps and then run the following commands
+
+```
+wget https://github.com/crowdcoinChain/ScriptEasyInstall/blob/master/linux_easyinstall.sh
+bash linux_easyinstall.sh
+```
