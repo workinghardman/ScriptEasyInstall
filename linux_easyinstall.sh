@@ -43,7 +43,7 @@ fi
 
 
 ADD_SWAP=N
-GITHUB_DL=https://github.com/crowdcoinChain/Crowdcoin/releases/download/1.1.0/Crowdcoin_command_line_binaries_linux_1.1.tar.gz
+GITHUB_DL=https://github.com/crowdcoinChain/Crowdcoin/releases/download/1.2.0/Crowdcoin_command_line_binaries_linux_1.2.tar.gz
 RPCPORT=11998
 CRCPORT=12875
 
