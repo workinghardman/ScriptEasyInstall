@@ -159,7 +159,7 @@ sudo apt-get update
 sudo apt-get install libdb4.8-dev libdb4.8++-dev wget -y
 
 wget $GITHUB_DL
-tar -zxvf ./Crowdcoin_command_line_binaries_linux_1.1.tar.gz
+tar -zxvf ./Crowdcoin_command_line_binaries_linux_1.2.tar.gz
 
 echo ""
 echo "==============================================="
