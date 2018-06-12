@@ -1,10 +1,9 @@
-- Linux_easyinstall_rev.sh is the old version of the scrypt where from line 0 to 62 are to be added to the current script (linux_easyinstall.sh). Lines 63, 64, update link with last binaries (tar.gz) here https://github.com/crowdcoinChain/Crowdcoin/releases
+# ScriptEasyInstall 1.0
 
-- Linux_easyinstall.sh is the current version of the script.
+This nice script do the full install of a Crowdcoin masternode
+adding as well the resync script and the sentinel
 
-- remove_all.sh is the script that remove all folders/files that have to be removed to start a clean installation
-
-#INSTALL
+## INSTALL
 
 Log in your vps and then run the following commands
 
