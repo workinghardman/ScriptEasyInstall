@@ -1,8 +1,8 @@
 #!/bin/bash
 # linux_easyinstall.sh
 # Version 0.1
-# Date : 06.06.2018
-# This script will install a CRC Hot Wallet Masternode in the default folder location
+# Date : 12.06.2018
+# This script will install a CRC Cold Wallet Masternode in the default folder location
 
 if [ -f /etc/os-release ]; then
     # freedesktop.org and systemd
@@ -43,7 +43,10 @@ fi
 
 
 ADD_SWAP=N
-GITHUB_DL=https://github.com/crowdcoinChain/Crowdcoin/releases/download/1.2.0/Crowdcoin_command_line_binaries_linux_1.2.tar.gz
+TARFILE=Crowdcoin_command_line_binaries_linux_1.2.tar.gz
+BINDIR=~/Crowdcoin_command_line_binaries_linux_1.2
+GITHUB_DL=https://github.com/crowdcoinChain/Crowdcoin/releases/download/1.2.0/$TARFILE
+
 RPCPORT=11998
 CRCPORT=12875
 
@@ -76,7 +79,19 @@ echo -e "${YELLOW}
 ${NONE}
 "
 echo "--------------------------------------------------------------"
-echo "This script will setup a CRC Masternode in a Hot Wallet Setup"
+echo "This script will setup a CRC Masternode in a Cold Wallet Setup"
+echo "--------------------------------------------------------------"
+echo ""
+echo "Before going further, you need :"
+echo "A Windows wallet Synced "
+echo "The Genkey generated from your windows Wallet"
+echo "You can have all this information from the Windows Wallet Console "
+echo "By typing following commands :"
+echo " getnewaddress MN1500"
+echo "Then send the exact collateral amount to this address"
+echo "Then type in Windows Wallet console"
+echo " masternode genkey"
+echo " masternode outputs"
 echo "--------------------------------------------------------------"
 read -p "Do you want to continue ? (Y/N)? " -n 1 -r
 echo 
@@ -159,7 +174,7 @@ sudo apt-get update
 sudo apt-get install libdb4.8-dev libdb4.8++-dev wget -y
 
 wget $GITHUB_DL
-tar -zxvf ./Crowdcoin_command_line_binaries_linux_1.2.tar.gz
+tar -zxvf ./$TARFILE
 
 echo ""
 echo "==============================================="
@@ -168,7 +183,7 @@ echo "==============================================="
 echo "" 
 if pgrep -x "crowdcoind" > /dev/null
 then
-    cd ~/Crowdcoin_command_line_binaries_linux_1.2
+    cd $BINDIR
     echo "Found crowdcoind is running, stopping it..."
     ./crowdcoin-cli stop
     echo "Waiting 60 seconds before continuing..." 
@@ -186,7 +201,7 @@ rpcpass=`pwgen -1 20 -n`
 echo "rpcuser=${rpcuser}
 rpcpassword=${rpcpass}" >> crowdcoin.conf
 
-cd ~/Crowdcoin_command_line_binaries_linux_1.2
+cd $BINDIR
 echo "Starting Crowdcoind from $PWD"
 ./crowdcoind -daemon
 sleep 10
@@ -194,17 +209,15 @@ crowdcoinGetInfoOutput=$(./crowdcoin-cli getinfo)
 while [[ ! ($crowdcoinGetInfoOutput = *"version"*) ]]; do
 	sleep 10
 	$crowdcoinGetInfoOutput
-done	
-masterNodeAccountAddress=$(./crowdcoin-cli getaccountaddress 0)
-masternodeGenKey=$(./crowdcoin-cli masternode genkey)
+done
+read -p 'Enter the Genkey : ' masternodeGenKey	
 echo "----------------------------------------------------------------------"
-echo "masterNodeAccountAddress : $masterNodeAccountAddress"
 echo "masternodeGenKey : $masternodeGenKey"
 echo "----------------------------------------------------------------------"
 echo ""
 echo "Stopping CrowdCoin daemon to update configuration file..."
 ./crowdcoin-cli stop
-sleep 60
+sleep 10
 #write all data into ../crowdcoind
 locateCrowdCoinConf=~/.crowdcoincore/crowdcoin.conf
 cat >> $locateCrowdCoinConf <<EOF
@@ -238,52 +251,22 @@ echo " Waiting 60 seconds before restarting..."
 sleep 60
 ./crowdcoind -daemon
 sleep 10
-## now on you have to get the privatekeY and the address 0
-masternodeOutputs=`./crowdcoin-cli masternode outputs | tr -d "{}:\""`
-echo "-----------------------------------------------"
-echo "Wait Masternode Syncronization..."
-echo "-----------------------------------------------"
-echo ""
-if [ ${#masternodeOutputs} -le 3 ]; then
- echo "if not already done, send the Masternode collateral to this new address: $masterNodeAccountAddress"
-fi
-echo "Now waiting Masternode Sync and collateral confirmation"
-echo "Checking every 5 seconds ..."
-spin='-\|/'
-while [ ${#masternodeOutputs} -le 3 ]; do
-        i=$(( (i+1) %4 ))
-        block=`./crowdcoin-cli getinfo | grep block | tr -d ,`
-        balance=`./crowdcoin-cli getbalance`
-        printf "\r$block | Balance : $balance ${spin:$i:1}"
-        sleep 5
-        masternodeOutputs=`./crowdcoin-cli masternode outputs | tr -d "{}:\""`
-done
-echo "OK, Transaction ID found :  $masternodeOutputs"
-echo "Stopping CrowdCoin daemon to update Masternode configuration file..."
-./crowdcoin-cli stop
-sleep 10
-locateMasternode=~/.crowdcoincore/masternode.conf
-masternodeConfSample="mn1 127.0.0.1:$CRCPORT $masternodeGenKey $masternodeOutputs"
-echo $masternodeConfSample >> $locateMasternode
-echo "Masternode configuration updated. Waiting 60 seconds before restarting..."
-sleep 60
-./crowdcoind -daemon
-sleep 10
-masternodeStartOutput=$(./crowdcoin-cli masternode start)
-echo $masternodeStartOutput
-while [[ ! ($masternodeStartOutput = *"started"*) ]]; do
-        i=$(( (i+1) %4 ))
-        block=`./crowdcoin-cli getinfo | grep block | tr -d ,`
-        balance=`./crowdcoin-cli getbalance`
-        masternodeStartOutput=$(./crowdcoin-cli masternode start)
-        printf "\r$block | Balance : $balance ${spin:$i:1} : $masternodeStartOutput                "
-        sleep 5
-done
-echo ""
 echo "Add sentinelLinux in crontab"
 (crontab -l 2>/dev/null; echo "* * * * * cd ~/sentinelLinux && ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel-cron.log") | crontab -
-echo ""
-echo "Add check MN Status in crontab"
-(crontab -l 2>/dev/null; echo "* * * * * cd ~/Crowdcoin_command_line_binaries_linux_1.2 &  ./check_status.sh 2>&1 >> mn-check-cron.log") | crontab -
 sudo service cron reload
-echo "$masternodeStartOutput"
+echo "VPS Cold Wallet is now done."
+echo "run the following command to check your masternode is in sync"
+echo "$BINDIR/crowdcoin-cli mnsync status"
+echo "When snyced, on your Windows wallet, create masternode.conf file"
+echo "Enter the following line : "
+echo "MN1500 <IP Of YOUR VPS>:12875 $masternodeGenKey <Transaction> <id>"
+echo "Then restart your Windows Wallet, you should see your MN1500 masternode in the masternode tab"
+echo "Select the line and hit Start-Alias button"
+echo ""
+echo "To monitor, run the following command on your vps :"
+echo "$BINDIR/crowdcoin-cli  masternode status"
+echo "and check you have the Masternode remote activation message"
+echo "you can also run :"
+echo "tail -f ~/.crowdcoincore/debug.log"
+
+ 
