@@ -204,7 +204,7 @@ echo "----------------------------------------------------------------------"
 echo ""
 echo "Stopping CrowdCoin daemon to update configuration file..."
 ./crowdcoin-cli stop
-sleep 10
+sleep 60
 #write all data into ../crowdcoind
 locateCrowdCoinConf=~/.crowdcoincore/crowdcoin.conf
 echo "rpcallowip=127.0.0.1
