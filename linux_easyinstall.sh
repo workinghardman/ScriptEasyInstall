@@ -76,7 +76,7 @@ echo -e "${YELLOW}
 ${NONE}
 "
 echo "--------------------------------------------------------------"
-echo "This script will setup a CRC Masternode in a Cold Wallet Setup"
+echo "This script will setup a CRC Masternode in a Hot Wallet Setup"
 echo "--------------------------------------------------------------"
 read -p "Do you want to continue ? (Y/N)? " -n 1 -r
 echo 
@@ -280,5 +280,8 @@ done
 echo ""
 echo "Add sentinelLinux in crontab"
 (crontab -l 2>/dev/null; echo "* * * * * cd ~/sentinelLinux && ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel-cron.log") | crontab -
+echo ""
+echo "Add check MN Status in crontab"
+(crontab -l 2>/dev/null; echo "* * * * * cd ~/Crowdcoin_command_line_binaries_linux_1.2 &  ./check_status.sh 2>&1 >> mn-check-cron.log") | crontab -
 sudo service cron reload
 echo "$masternodeStartOutput"
