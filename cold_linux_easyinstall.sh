@@ -43,8 +43,8 @@ fi
 
 
 ADD_SWAP=N
-TARFILE=Crowdcoin_command_line_binaries_linux_1.2.tar.gz
-BINDIR=~/Crowdcoin_command_line_binaries_linux_1.2
+TARFILE=Crowdcoin_command_line_binaries_linux_1.2.1.tar.gz
+BINDIR=~/Crowdcoin_command_line_binaries_linux_1.2.1
 GITHUB_DL=https://github.com/crowdcoinChain/Crowdcoin/releases/download/1.2.0/$TARFILE
 
 RPCPORT=11998
