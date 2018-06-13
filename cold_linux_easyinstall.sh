@@ -221,6 +221,7 @@ sleep 10
 #write all data into ../crowdcoind
 locateCrowdCoinConf=~/.crowdcoincore/crowdcoin.conf
 cat >> $locateCrowdCoinConf <<EOF
+rpcbind=127.0.0.1
 rpcallowip=127.0.0.1
 rpcport=$RPCPORT
 rpcthreads=8
