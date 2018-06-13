@@ -189,10 +189,10 @@ rpcpassword=${rpcpass}" >> crowdcoin.conf
 cd ~/Crowdcoin_command_line_binaries_linux_1.2
 echo "Starting Crowdcoind from $PWD"
 ./crowdcoind -daemon
-sleep 10
+sleep 60
 crowdcoinGetInfoOutput=$(./crowdcoin-cli getinfo)
 while [[ ! ($crowdcoinGetInfoOutput = *"version"*) ]]; do
-	sleep 10
+	sleep 60
 	$crowdcoinGetInfoOutput
 done	
 masterNodeAccountAddress=$(./crowdcoin-cli getaccountaddress 0)
