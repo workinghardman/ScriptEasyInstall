@@ -43,7 +43,7 @@ fi
 
 
 ADD_SWAP=N
-GITHUB_DL=https://github.com/crowdcoinChain/Crowdcoin/releases/download/1.2.1/Crowdcoin_command_line_binaries_linux_1.2.1.tar.gz
+GITHUB_DL=https://github.com/crowdcoinChain/Crowdcoin/releases/download/1.1.0/Crowdcoin_command_line_binaries_linux_1.1.tar.gz
 RPCPORT=11998
 CRCPORT=12875
 
@@ -159,7 +159,7 @@ sudo apt-get update
 sudo apt-get install libdb4.8-dev libdb4.8++-dev wget -y
 
 wget $GITHUB_DL
-tar -zxvf ./Crowdcoin_command_line_binaries_linux_1.2.1.tar.gz
+tar -zxvf ./Crowdcoin_command_line_binaries_linux_1.1.tar.gz
 
 echo ""
 echo "==============================================="
@@ -168,7 +168,7 @@ echo "==============================================="
 echo "" 
 if pgrep -x "crowdcoind" > /dev/null
 then
-    cd ~/Crowdcoin_command_line_binaries_linux_1.2.1
+    cd ~/Crowdcoin_command_line_binaries_linux_1.1
     echo "Found crowdcoind is running, stopping it..."
     ./crowdcoin-cli stop
     echo "Waiting 60 seconds before continuing..." 
@@ -186,7 +186,7 @@ rpcpass=`pwgen -1 20 -n`
 echo "rpcuser=${rpcuser}
 rpcpassword=${rpcpass}" >> crowdcoin.conf
 
-cd ~/Crowdcoin_command_line_binaries_linux_1.2.1
+cd ~/Crowdcoin_command_line_binaries_linux_1.1
 echo "Starting Crowdcoind from $PWD"
 ./crowdcoind -daemon
 sleep 60
@@ -285,6 +285,6 @@ echo "Add sentinelLinux in crontab"
 (crontab -l 2>/dev/null; echo "* * * * * cd ~/sentinelLinux && ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel-cron.log") | crontab -
 echo ""
 echo "Add check MN Status in crontab"
-(crontab -l 2>/dev/null; echo "* * * * * cd ~/Crowdcoin_command_line_binaries_linux_1.2.1 &  ./check_status.sh 2>&1 >> mn-check-cron.log") | crontab -
+(crontab -l 2>/dev/null; echo "* * * * * cd ~/Crowdcoin_command_line_binaries_linux_1.1 &  ./check_status.sh 2>&1 >> mn-check-cron.log") | crontab -
 sudo service cron reload
 echo "$masternodeStartOutput"
