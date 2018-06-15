@@ -154,7 +154,7 @@ echo && echo "Firewall installed and enabled!"
 echo "installing sentinel"
 sudo apt-get update
 sudo apt-get install git -y
-sudo apt-get -y install python-virtualenv
+sudo apt-get -y install python-virtualenv virtualenv
 cd ~
 git clone https://github.com/crowdcoinChain/sentinelLinux.git && cd sentinelLinux
 export LC_ALL=C
