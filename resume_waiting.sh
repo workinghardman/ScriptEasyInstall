@@ -1,4 +1,6 @@
+
 cd ~/Crowdcoin_command_line_binaries_linux_1.1
+masterNodeAccountAddress=$(./crowdcoin-cli getaccountaddress 0)
 ## now on you have to get the privatekeY and the address 0
 masternodeOutputs=`./crowdcoin-cli masternode outputs | tr -d "{}:\""`
 echo "-----------------------------------------------"
