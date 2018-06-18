@@ -1,3 +1,10 @@
+#!/bin/bash
+# resume_waiting.sh
+# Version 0.1
+# Date : 18.06.2018
+# This script will resume in case of crash during waiting time of the install script
+
+
 
 cd ~/Crowdcoin_command_line_binaries_linux_1.1
 masterNodeAccountAddress=$(./crowdcoin-cli getaccountaddress 0)
