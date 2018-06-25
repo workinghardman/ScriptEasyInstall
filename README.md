@@ -160,7 +160,7 @@ The transaction and output ID from the deposit you made into your masternode pub
 ***Step 7***
 > Paste the code below into Putty to ***download*** the masternode install script.
 
-`wget -q https://raw.githubusercontent.com/ronaldr1987/crowdcoin/master/crowdcoin_install.sh`
+`wget -q https://github.com/crowdcoinChain/ScriptEasyInstall/blob/master/cold_linux_easyinstall.sh
 
 ***Step 8***
 > Paste the code below into Putty, then press ***enter*** to start the masternode installation.
