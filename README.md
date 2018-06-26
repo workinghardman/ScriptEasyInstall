@@ -160,7 +160,7 @@ wget -q https://raw.githubusercontent.com/crowdcoinChain/ScriptEasyInstall/maste
 > Paste the code below into Putty, then press ***enter*** to start the masternode installation.
 
 ```
-bash crowdcoin_install.sh
+bash cold_linux_easyinstall.sh
 ```
 
 ***Step 9***
