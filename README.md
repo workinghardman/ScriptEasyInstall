@@ -226,7 +226,6 @@ DONATION (CRC): CV8WdSZKp4rcTUxMLoPg8WcS1PdqEjgREV
 DONATION (ETH): 0x06E4454CB946038E3252eD1d5B3fDafb85E089F5
 ```
 
-
 ***
 
 ### Part E: Frequently Asked Questions
@@ -278,3 +277,7 @@ You should now see ***MASTERNODE_SYNC_FINISHED***
 > ***Q8: How many coins will i receive per day/week/month ?***
 
 You can check all the current stats at https://masternodes.online/
+
+***
+
+**Creator:** https://github.com/ronaldr1987/
