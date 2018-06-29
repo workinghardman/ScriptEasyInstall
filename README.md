@@ -219,12 +219,16 @@ You should now see ***Masternode successfully started***
 
 ![mn-started](https://i.imgur.com/mm3MM9q.jpg)
 
+**INSTALLATION FINSIHED !!!**
+
 ```
 DONATION (CRC): CV8WdSZKp4rcTUxMLoPg8WcS1PdqEjgREV
 ```
 ```
 DONATION (ETH): 0x06E4454CB946038E3252eD1d5B3fDafb85E089F5
 ```
+
+For any questions related to this guide you can contact support on our [Discord](https://discord.gg/KS7PUpe) channel.
 
 ***
 
