@@ -35,7 +35,7 @@ Your local wallet is not required to be kept open and you can store it as a cold
 ![wallet](https://i.imgur.com/iYDRSpZ.jpg)
 
 * If you are prompted to allow access by the firewall, do so.
-* If the wallet is not synching, add the nodes in the configuration file.
+* If the wallet is not ***synchronising***, add the nodes from [nodes.crowdcoin.site](https://nodes.crowdcoin.site) in to the configuration file.
 
 Open the configuration from `Tools > Open Wallet Configuration File`. Restart the wallet every time you update the configuration file.
 
