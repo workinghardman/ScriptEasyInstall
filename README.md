@@ -35,21 +35,10 @@ Your local wallet is not required to be kept open and you can store it as a cold
 ![wallet](https://i.imgur.com/iYDRSpZ.jpg)
 
 * If you are prompted to allow access by the firewall, do so.
-* If the wallet is not ***synchronising***, add the nodes from [nodes.crowdcoin.site](https://nodes.crowdcoin.site) in to the configuration file.
+* If your wallet is not ***synchronising***, add the nodes from [nodes.crowdcoin.site](https://nodes.crowdcoin.site) in to the configuration file.
 
-Open the configuration from `Tools > Open Wallet Configuration File`. Restart the wallet every time you update the configuration file.
-
-```
-addnode=84.17.23.43:12875   
-addnode=18.220.138.90:12875   
-addnode=86.57.164.166:12875   
-addnode=86.57.164.146:12875   
-addnode=18.217.78.145:12875   
-addnode=23.92.30.230:12875   
-addnode=35.190.182.68:12875   
-addnode=80.209.236.4:12875   
-addnode=91.201.40.89:12875
-```
+Open the configuration from `Tools > Open Wallet Configuration File`, add the nodes and save. 
+Restart the wallet every time you update the configuration file.
 
 ***Step 3:***
 > Create masternode public address
