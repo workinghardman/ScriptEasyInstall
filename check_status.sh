@@ -45,7 +45,7 @@ if [ -d "$BIN_DIR" ]; then
                 str_array=($masternodestate_line)
                 masternodestate=${str_array[1]}
                 #if [[ $masternodestate = *ENABLE* ]]; then
-                if [[ $masternodestate = *NEW_START_REQUIRED* ]]; then
+                if [[ $masternodestate = *NEW_START_REQUIRED* ]] || [[ $masternodestate = *error* ]] ; then
                         restart="$(./crowdcoin-cli masternode start)"
                         echo "$TIMESTAMP : Masternode start command send : $restart"
                 else
