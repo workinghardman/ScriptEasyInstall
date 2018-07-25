@@ -29,29 +29,34 @@ if [ -d "$BIN_DIR" ]; then
   cd $BIN_DIR
   if [ -f "$CRC_CLI" ]; then
         masternodestatus=""
-        masternodestatus="$(./crowdcoin-cli masternode status | grep "vin" | tr -d "{},:\"")"
-        str_array=($masternodestatus)
-        tx=${str_array[1]#CTxIn\(COutPoint\(}
-        id=${str_array[2]:0:1}
-        #echo $tx-$id
-        masternodelist=`./crowdcoin-cli masternode list | grep "$tx-$id" | tr -d "\":," | cut -d : -f 1`
-        masternodestate_line="$masternodelist"
-        if [[ $masternodestate_line = "" ]]; then
-                echo "$TIMESTAMP : ERROR : can not found masternode with transaction-id : $tx-$id"
-                echo "$TIMESTAMP : $masternodestate_line"
+        masternodestatus="$(./$CRC_CLI masternode status 2>/dev/null | grep "vin" | tr -d "{},:\"")"
+        if [[ $masternodestatus = "" ]]; then
+                echo "$TIMESTAMP : ERROR : can not connect to masternode"
                 exit 1
         else
-                #echo $masternodestate_line
-                str_array=($masternodestate_line)
-                masternodestate=${str_array[1]}
-                #if [[ $masternodestate = *ENABLE* ]]; then
-                if [[ $masternodestate = *NEW_START_REQUIRED* ]] || [[ $masternodestate = *error* ]] ; then
-                        restart="$(./crowdcoin-cli masternode start)"
-                        echo "$TIMESTAMP : Masternode start command send : $restart"
-                else
-                        #echo $masternodestate
-                        exit 0
-                fi
+            str_array=($masternodestatus)
+            tx=${str_array[1]#CTxIn\(COutPoint\(}
+            id=${str_array[2]:0:1}
+            #echo $tx-$id
+            masternodelist=`./crowdcoin-cli masternode list | grep "$tx-$id" | tr -d "\":," | cut -d : -f 1`
+            masternodestate_line="$masternodelist"
+            if [[ $masternodestate_line = "" ]]; then
+                    echo "$TIMESTAMP : ERROR : can not found masternode with transaction-id : $tx-$id"
+                    echo "$TIMESTAMP : $masternodestate_line"
+                    exit 1
+            else
+                    #echo $masternodestate_line
+                    str_array=($masternodestate_line)
+                    masternodestate=${str_array[1]}
+                    #if [[ $masternodestate = *ENABLE* ]]; then
+                    if [[ $masternodestate = *NEW_START_REQUIRED* ]] || [[ $masternodestate = *error* ]] ; then
+                            restart="$(./crowdcoin-cli masternode start)"
+                            echo "$TIMESTAMP : Masternode start command send : $restart"
+                    else
+                            #echo $masternodestate
+                            exit 0
+                    fi
+            fi
         fi
   else
         echo "$TIMESTAMP : ERROR : can not found $CRC_CLI  in $BIN_DIR"
