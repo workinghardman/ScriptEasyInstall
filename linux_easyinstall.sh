@@ -288,3 +288,5 @@ echo "Add check MN Status in crontab"
 (crontab -l 2>/dev/null; echo "* * * * * cd ~/Crowdcoin_command_line_binaries_linux_1.1 &  ./check_status.sh 2>&1 >> mn-check-cron.log") | crontab -
 sudo service cron reload
 echo "$masternodeStartOutput"
+sudo apt-get autoremove
+sudo apt-get clean
