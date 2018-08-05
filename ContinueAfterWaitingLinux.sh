@@ -1,5 +1,6 @@
 cd ../Crowdcoin_command_line_binaries_linux_1.1/
-
+echo  "Restarting Daemon"
+./crowdcoind -daemon 
 echo "Now waiting Masternode Sync and collateral confirmation"
 echo "Checking every 5 seconds ..."
 spin='-\|/'
