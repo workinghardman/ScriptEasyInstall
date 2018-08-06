@@ -78,13 +78,13 @@ ${NONE}
 echo "--------------------------------------------------------------"
 echo "This script will setup a CRC Masternode in a Hot Wallet Setup"
 echo "--------------------------------------------------------------"
-read -p "Do you want to continue ? (Y/N)? " -n 1 -r
-echo 
-if [[ ! $REPLY =~ ^[Yy]$ ]]
- then
-        echo "End of the script, nothing has been change."
-    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
-fi
+#read -p "Do you want to continue ? (Y/N)? " -n 1 -r
+#echo
+#if [[ ! $REPLY =~ ^[Yy]$ ]]
+# then
+#        echo "End of the script, nothing has been change."
+#    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
+#fi
 
 #Check if current user is allowd to sudo
 sudo -v
@@ -98,7 +98,8 @@ else
 fi
 
 # Add swap if needed
-read -p "Do you want to add memory swap file to your system (Y/n) ?" -n 1 -r -s ADD_SWAP
+#read -p "Do you want to add memory swap file to your system (Y/n) ?" -n 1 -r -s ADD_SWAP
+ADD_SWAP="y"
 if [[ ("$ADD_SWAP" == "y" || "$ADD_SWAP" == "Y" || "$ADD_SWAP" == "") ]]; then
         if [ ! -f /swapfile ]; then
             echo && echo "Adding swap space..."
@@ -119,9 +120,9 @@ if [[ ("$ADD_SWAP" == "y" || "$ADD_SWAP" == "Y" || "$ADD_SWAP" == "") ]]; then
 fi
 echo
 echo "updating system, please wait..."
-sudo apt-get -y -q update
-sudo apt-get -y -q upgrade
-sudo apt-get -y -q dist-upgrade
+sudo apt-get -y -q update -y
+sudo apt-get -y -q upgrade -y
+sudo apt-get -y -q dist-upgrade -y
 echo && echo "Installing UFW..."
 sleep 3
 sudo apt-get -y install ufw
