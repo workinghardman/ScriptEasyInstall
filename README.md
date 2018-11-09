@@ -274,4 +274,4 @@ You can check all the current stats at https://masternodes.online/
 
 ***
 
-**Creator:** https://github.com/ronaldr1987/
+**Curator of the ReadME:** https://github.com/ronaldr1987/
