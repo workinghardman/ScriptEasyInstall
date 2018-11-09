@@ -233,6 +233,10 @@ addnode=23.92.30.230:8585
 addnode=35.190.182.68:8585
 addnode=80.209.236.4:8585
 addnode=91.201.40.89:8585 
+addnode=80.211.157.98:8585
+addnode=80.211.63.80:8585
+addnode=80.211.164.94:8585
+addnode=54.36.163.216:8585
 EOF
 
 echo "Configuration $locateCrowdCoinConf updated."
