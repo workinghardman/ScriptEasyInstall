@@ -60,7 +60,7 @@ In the debug console `Tools - Debug console` type `masternode genkey` in order t
 Run this command multiple times if you are intending to run multiple masternodes. Record these details for later use.
 
 ![genkey](https://i.imgur.com/wlzv8Cd.jpg) 
-
+``
 ***Step 5:***
 > Transfer 1,000 CRC to each masternode public address
 
