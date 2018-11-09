@@ -14,7 +14,7 @@ COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 SENTINEL_REPO='https://github.com/crowdcoinChain/sentinelLinux.git'
 #COIN_BOOTSTRAP='XX'
 COIN_NAME='crowdcoin'
-COIN_PORT=12875
+COIN_PORT=8585
 RPC_PORT=11998
 NODEIP=$(curl -s4 icanhazip.com)
 
