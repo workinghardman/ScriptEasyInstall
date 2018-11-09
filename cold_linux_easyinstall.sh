@@ -33,7 +33,7 @@ purgeOldInstallation() {
     systemctl stop $COIN_NAME.service > /dev/null 2>&1
     sudo killall $COIN_DAEMON > /dev/null 2>&1
     #remove old ufw port allow
-    sudo ufw delete allow 12875/tcp > /dev/null 2>&1
+    sudo ufw delete allow 8585/tcp > /dev/null 2>&1
     #remove old files
 	rm /root/$CONFIGFOLDER/bootstrap.dat.old > /dev/null 2>&1
 	cd /usr/local/bin && sudo rm $COIN_CLI $COIN_DAEMON > /dev/null 2>&1 && cd
@@ -173,15 +173,15 @@ addnode=96.126.124.245
 addnode=121.200.4.203
 addnode=188.165.52.69
 addnode=207.148.121.239
-addnode=84.17.23.43:12875
-addnode=18.220.138.90:12875
-addnode=86.57.164.166:12875
-addnode=86.57.164.146:12875
-addnode=18.217.78.145:12875
-addnode=23.92.30.230:12875
-addnode=35.190.182.68:12875
-addnode=80.209.236.4:12875
-addnode=91.201.40.89:12875 
+addnode=84.17.23.43:8585
+addnode=18.220.138.90:8585
+addnode=86.57.164.166:8585
+addnode=86.57.164.146:8585
+addnode=18.217.78.145:8585
+addnode=23.92.30.230:8585
+addnode=35.190.182.68:8585
+addnode=80.209.236.4:8585
+addnode=91.201.40.89:8585 
 
 EOF
 }
