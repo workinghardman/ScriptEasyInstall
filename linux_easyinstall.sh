@@ -45,7 +45,7 @@ fi
 ADD_SWAP=N
 GITHUB_DL=https://github.com/crowdcoinChain/Crowdcoin/releases/download/2.0.0/Crowdcoin_command_line_binaries_linux_2.0.0.tar.gz
 RPCPORT=11998
-CRCPORT=12875
+CRCPORT=8585
 
 NONE='\033[00m'
 YELLOW='\033[01;33m'
@@ -224,15 +224,15 @@ addnode=96.126.124.245
 addnode=121.200.4.203
 addnode=188.165.52.69
 addnode=207.148.121.239
-addnode=84.17.23.43:12875
-addnode=18.220.138.90:12875
-addnode=86.57.164.166:12875
-addnode=86.57.164.146:12875
-addnode=18.217.78.145:12875
-addnode=23.92.30.230:12875
-addnode=35.190.182.68:12875
-addnode=80.209.236.4:12875
-addnode=91.201.40.89:12875 
+addnode=84.17.23.43:8585
+addnode=18.220.138.90:8585
+addnode=86.57.164.166:8585
+addnode=86.57.164.146:8585
+addnode=18.217.78.145:8585
+addnode=23.92.30.230:8585
+addnode=35.190.182.68:8585
+addnode=80.209.236.4:8585
+addnode=91.201.40.89:8585 
 EOF
 
 echo "Configuration $locateCrowdCoinConf updated."
