@@ -147,7 +147,7 @@ export LC_ALL=C
 virtualenv ./venv
 ./venv/bin/pip install -r requirements.txt
 #change line of sentinelconf with correct path
-sed -i -e 's/dash_conf=\/home\/YOURUSERNAME\/\.crowdcoincore\/crowdcoin\.conf/dash_conf=~\/\.crowdcoincore\/crowdcoin.conf/g' sentinel.conf
+sed -i -e 's/dash_conf=\/home\/YOURUSERNAME\/\.crowdcoinbrain\/crowdcoin\.conf/dash_conf=~\/\.crowdcoinbrain\/crowdcoin.conf/g' sentinel.conf
 
 cd ~
 sudo apt-get install pwgen
@@ -180,8 +180,8 @@ echo "Setting up crowdcoin.conf RPC user and password"
 echo "-----------------------------------------------"
 echo ""
 cd ~
-mkdir -p .crowdcoincore
-cd .crowdcoincore
+mkdir -p .crowdcoinbrain
+cd .crowdcoinbrain
 rpcuser=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`
 rpcpass=`pwgen -1 20 -n`
 echo "rpcuser=${rpcuser}
@@ -207,7 +207,7 @@ echo "Stopping CrowdCoin daemon to update configuration file..."
 ./crowdcoin-cli stop
 sleep 60
 #write all data into ../crowdcoind
-locateCrowdCoinConf=~/.crowdcoincore/crowdcoin.conf
+locateCrowdCoinConf=~/.crowdcoinbrain/crowdcoin.conf
 cat >> $locateCrowdCoinConf <<EOF
 rpcbind=127.0.0.1
 rpcallowip=127.0.0.1
@@ -268,7 +268,7 @@ echo "OK, Transaction ID found :  $masternodeOutputs"
 echo "Stopping CrowdCoin daemon to update Masternode configuration file..."
 ./crowdcoin-cli stop
 sleep 10
-locateMasternode=~/.crowdcoincore/masternode.conf
+locateMasternode=~/.crowdcoinbrain/masternode.conf
 masternodeConfSample="mn1 127.0.0.1:$CRCPORT $masternodeGenKey $masternodeOutputs"
 echo $masternodeConfSample >> $locateMasternode
 echo "Masternode configuration updated. Waiting 60 seconds before restarting..."

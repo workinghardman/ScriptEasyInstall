@@ -227,8 +227,8 @@ For any questions related to this guide you can contact support on our [Discord]
 > ***Q1: I’ve installed the Crowdcoin wallet, but where are my wallet data files?***
 
 These are the default directories for the data directory:
-* Mac: ~/Library/Application Support/Crowdcoincore
-* Windows: C:\Users\YOUR_USERNAME\AppData\Roaming\Crowdcoincore  
+* Mac: ~/Library/Application Support/crowdcoinbrain
+* Windows: C:\Users\YOUR_USERNAME\AppData\Roaming\crowdcoinbrain
 
 > ***Q2: I have 1001 CRC, why is my masternode outputs blank?***
 
