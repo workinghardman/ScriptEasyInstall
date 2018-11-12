@@ -18,7 +18,7 @@ echo "Stopping CrowdCoin daemon to update Masternode configuration file..."
 ./crowdcoin-cli stop
 sleep 10
 locateMasternode=~/.crowdcoinbrain/masternode.conf
-masternodeConfSample="mn1 127.0.0.1:$CRCPORT $masternodeGenKey $masternodeOutputs"
+masternodeConfSample="mn1 127.0.0.1:8585 $masternodeGenKey $masternodeOutputs"
 echo $masternodeConfSample >> $locateMasternode
 echo "Masternode configuration updated. Waiting 60 seconds before restarting..."
 sleep 60
