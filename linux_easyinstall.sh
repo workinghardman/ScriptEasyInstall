@@ -275,13 +275,13 @@ echo "Masternode configuration updated. Waiting 60 seconds before restarting..."
 sleep 60
 ./crowdcoind -daemon
 sleep 10
-masternodeStartOutput=$(./crowdcoin-cli masternode start)
+masternodeStartOutput=$(./crowdcoin-cli masternode start-all)
 echo $masternodeStartOutput
 while [[ ! ($masternodeStartOutput = *"started"*) ]]; do
         i=$(( (i+1) %4 ))
         block=`./crowdcoin-cli getinfo | grep block | tr -d ,`
         balance=`./crowdcoin-cli getbalance`
-        masternodeStartOutput=$(./crowdcoin-cli masternode start)
+        masternodeStartOutput=$(./crowdcoin-cli masternode start-all)
         printf "\r$block | Balance : $balance ${spin:$i:1} : $masternodeStartOutput                "
         sleep 5
 done

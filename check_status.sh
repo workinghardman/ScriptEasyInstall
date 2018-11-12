@@ -12,7 +12,7 @@
 # 
 # if the masternode is in "NEW_START_REQUIRED" it will lanch the command
 # 
-# ./crowdcoin-cli masternode start
+# ./crowdcoin-cli masternode start-all
 # 
 # this Script suppose that you install the masternode software using the 
 # linux_easyinstall.sh from https://github.com/crowdcoinChain/ScriptEasyInstall
@@ -50,7 +50,7 @@ if [ -d "$BIN_DIR" ]; then
                     masternodestate=${str_array[1]}
                     #if [[ $masternodestate = *ENABLE* ]]; then
                     if [[ $masternodestate = *NEW_START_REQUIRED* ]] || [[ $masternodestate = *error* ]] ; then
-                            restart="$(./crowdcoin-cli masternode start)"
+                            restart="$(./crowdcoin-cli masternode start-all)"
                             echo "$TIMESTAMP : Masternode start command send : $restart"
                     else
                             #echo $masternodestate
