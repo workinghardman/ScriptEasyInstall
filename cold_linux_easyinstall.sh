@@ -7,7 +7,7 @@ COIN_DAEMON='crowdcoind'
 COIN_VERSION='v2.0.1'
 COIN_CLI='crowdcoin-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_REPO='https://github.com/crowdcoinChain/Crowdcoin'
+COIN_REPO='https://github.com/crowdcoinChain/Crowdcoin.git'
 COIN_TGZ='https://github.com/crowdcoinChain/Crowdcoin/releases/download/2.0.1/Crowdcoin_command_line_binaries_linux_2.0.1.tar.gz'
 COIN_BINDIR='Crowdcoin_command_line_binaries_linux_2.0.1'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
@@ -20,7 +20,7 @@ NODEIP=$(curl -s4 icanhazip.com)
 
 BLUE="\033[0;34m"
 YELLOW="\033[0;33m"
-CYAN="\033[0;36m" 
+CYAN="\033[0;36m".
 PURPLE="\033[0;35m"
 RED='\033[0;31m'
 GREEN="\033[0;32m"
@@ -35,8 +35,8 @@ purgeOldInstallation() {
     #remove old ufw port allow
     sudo ufw delete allow 8585/tcp > /dev/null 2>&1
     #remove old files
-	rm /root/$CONFIGFOLDER/bootstrap.dat.old > /dev/null 2>&1
-	cd /usr/local/bin && sudo rm $COIN_CLI $COIN_DAEMON > /dev/null 2>&1 && cd
+<------>rm /root/$CONFIGFOLDER/bootstrap.dat.old > /dev/null 2>&1
+<------>cd /usr/local/bin && sudo rm $COIN_CLI $COIN_DAEMON > /dev/null 2>&1 && cd
     cd /usr/bin && sudo rm $COIN_CLI $COIN_DAEMON > /dev/null 2>&1 && cd
         sudo rm -rf ~/$CONFIGFOLDER > /dev/null 2>&1
     #remove binaries and Crowdcoin utilities
@@ -60,12 +60,7 @@ function install_sentinel() {
 function download_node() {
   echo -e "${GREEN}Downloading and installing $COIN_NAME daemon${NC}"
   cd $TMP_FOLDER >/dev/null 2>&1
-  git clone COIN_REPO
-  cd Crowdcoin
-  ./autogen.sh
-  ./configure.sh --without-gui --with-boost-libdir=/usr/local/lib
-  make -j
-  make install
+  wget -q $COIN_TGZ
   compile_error
   tar xvzf $COIN_ZIP >/dev/null 2>&1
   cd $COIN_BINDIR
@@ -231,8 +226,6 @@ function get_ip() {
     NODEIP=${NODE_IPS[0]}
   fi
 }
-
-
 function compile_error() {
 if [ "$?" -gt "0" ];
  then
@@ -243,6 +236,10 @@ fi
 
 
 function checks() {
+if [[ $(lsb_release -d) != *18.04* ]]; then
+  echo -e "${RED}You are not running Ubuntu 18.04. Installation is cancelled.${NC}"
+  exit 1
+fi
 
 if [[ $EUID -ne 0 ]]; then
    echo -e "${RED}$0 must be run as root.${NC}"
@@ -285,7 +282,6 @@ bsdmainutils libdb4.8++-dev libminiupnpc-dev libgmp3-dev ufw pkg-config libevent
 fi
 clear
 }
-
 function important_information() {
  clear
  echo
@@ -341,3 +337,5 @@ checks
 prepare_system
 download_node
 setup_node
+
+
