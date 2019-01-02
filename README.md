@@ -1,9 +1,9 @@
-# Crowdcoin Masternode Setup Guide (Ubuntu 16.04)
+# Crowdcoin Masternode Setup Guide (Ubuntu 18.04)
 ![Example-Logo](https://crowdcoin.site/img/logo-dark.png)
 
-This guide will assist you in setting up a Crowdcoin Masternode on a Linux Server running Ubuntu 16.04.
+This guide will assist you in setting up a Crowdcoin Masternode on a Linux Server running Ubuntu 18.04.
 
-This tutorial will guide you through the steps necessary to setup a Crowdcoin Masternode on a VPS server that is controlled from your remote wallet. This is the most secure way of configuring a masternode as the 1,000 CRC collateral resides in your local wallet and not within the remote masternode.
+This tutorial will guide you through the steps necessary to setup a Crowdcoin Masternode on a VPS server that is controlled from your remote wallet. This is the most secure way of configuring a masternode as the 1,000,000 CRC collateral resides in your local wallet and not within the remote masternode.
 
 Your local wallet is not required to be kept open and you can store it as a cold wallet whilst still collecting masternode payments. Whilst there are other ways to setup masternodes, this is by far the most secure and is highly recommended.
 
@@ -18,8 +18,8 @@ Your local wallet is not required to be kept open and you can store it as a cold
 
 ***
 ### Requirements
-1) **1,000 CRC.**
-2) **VPS running Linux Ubuntu 16.04.**
+1) **1,000,000 CRC.**
+2) **VPS running Linux Ubuntu 18.04.**
 3) **Windows local wallet.**
 4) **SSH client such as **[Putty](https://putty.org)** or [Bitvise](https://dl.bitvise.com/BvSshClient-Inst.exe)**
 
@@ -64,7 +64,7 @@ Run this command multiple times if you are intending to run multiple masternodes
 ***Step 5:***
 > Transfer 1,000 CRC to each masternode public address
 
-To allow your remote masternode to start you need to send 1,000 CRC to each masternode address in your local wallet, as generated in ***Step 3*** that you intend to operate. The transaction needs to be exactly ***1,000 CRC***. When you make this transaction, ensure that you factor in fees. The windows wallet will show you the total amount being deposited so ensure this reads excacly ***1,000 CRC***. Just to reiterate, you need to send exactly ***1,000 CRC*** in a single transaction to each masternode address that you intend to operate.
+To allow your remote masternode to start you need to send 1,000,000 CRC to each masternode address in your local wallet, as generated in ***Step 3*** that you intend to operate. The transaction needs to be exactly ***1,000,000 CRC***. When you make this transaction, ensure that you factor in fees. The windows wallet will show you the total amount being deposited so ensure this reads excacly ***1,000,000 CRC***. Just to reiterate, you need to send exactly ***1,000,000 CRC*** in a single transaction to each masternode address that you intend to operate.
 
 ![send](https://i.imgur.com/YZGFNm7.jpg) 
 
@@ -92,7 +92,7 @@ The transaction and output ID from the deposit you made into your masternode pub
 ![server-hostname](https://i.imgur.com/hTRq7nY.jpg)
 
 ***Step 4:*** 
-> Choose a server template: ***Ubuntu Server 16.0.4 LTS 64bit***
+> Choose a server template: ***Ubuntu Server 18.0.4 LTS 64bit***
 
 ![server-template](https://i.imgur.com/olzP1oZ.jpg)
 
@@ -143,7 +143,7 @@ The transaction and output ID from the deposit you made into your masternode pub
 > Paste the code below into Putty to ***download*** the masternode install script.
 
 ```
-wget -q https://raw.githubusercontent.com/crowdcoinChain/ScriptEasyInstall/master/cold_linux_easyinstall.sh
+wget -q https://github.com/workinghardman/ScriptEasyInstall/blob/master/cold_linux_easyinstall.sh
 ```
 
 ***Step 8***
@@ -250,7 +250,7 @@ Go to the ***Masternodes*** tab and inside that to the ***My Masternodes*** tab,
 > ***Q6: My masternode status is: MISSING***
 
 Either your wallet is not synchronized yet or a restart is required.
-Note that even a dedicated server can go down from time to time. When this happens you need to restart your masternode. Also make sure you do not accidentally send any of the ***1000 CRC*** locked into your masternode, as that will disable it, forcing you to start over.
+Note that even a dedicated server can go down from time to time. When this happens you need to restart your masternode. Also make sure you do not accidentally send any of the ***1000000 CRC*** locked into your masternode, as that will disable it, forcing you to start over.
 
 > ***Q7: My masternode is stuck on block 'xxx', how can i perform a reindex?***
 
