@@ -9,12 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c50c8255-1125-410b-930a-5a47bf403751" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/ContinueAfterWaitingLinux.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ContinueAfterWaitingLinux.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/check_status.sh" beforeDir="false" afterPath="$PROJECT_DIR$/check_status.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cold_linux_easyinstall.sh" beforeDir="false" afterPath="$PROJECT_DIR$/cold_linux_easyinstall.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux_easyinstall.sh" beforeDir="false" afterPath="$PROJECT_DIR$/linux_easyinstall.sh" afterDir="false" />
-    </list>
+    <list default="true" id="c50c8255-1125-410b-930a-5a47bf403751" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +22,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cold_linux_easyinstall.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="62" column="21" lean-forward="true" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
+            <state relative-caret-position="135">
+              <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+              <caret line="60" column="14" lean-forward="true" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -45,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/linux_easyinstall.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="170" column="12" selection-start-line="170" selection-start-column="12" selection-end-line="170" selection-end-column="12" />
+            <state relative-caret-position="304">
+              <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" selection-end-column="89" />
             </state>
           </provider>
         </entry>
@@ -86,10 +82,10 @@
       <find>compile_error</find>
       <find>./configure.sh</find>
       <find>mak</find>
-      <find>make</find>
       <find>./crowdcoind</find>
       <find>./crowdcoin-cli</find>
       <find>./</find>
+      <find>make</find>
     </findStrings>
     <replaceStrings>
       <replace>Crowdcoin_command_line_binaries_linux_1.2.1</replace>
@@ -196,12 +192,12 @@
       <workItem from="1541957812588" duration="150000" />
       <workItem from="1543915251451" duration="327000" />
       <workItem from="1546423648346" duration="2835000" />
-      <workItem from="1546427965446" duration="520000" />
+      <workItem from="1546427965446" duration="1780000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4239000" />
+    <option name="totallyTimeSpent" value="5499000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1366" height="738" extended-state="0" />
@@ -253,17 +249,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/linux_easyinstall.sh">
+    <entry file="file://$PROJECT_DIR$/cold_linux_easyinstall.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="170" column="12" selection-start-line="170" selection-start-column="12" selection-end-line="170" selection-end-column="12" />
+        <state relative-caret-position="135">
+          <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+          <caret line="60" column="14" lean-forward="true" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cold_linux_easyinstall.sh">
+    <entry file="file://$PROJECT_DIR$/linux_easyinstall.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="62" column="21" lean-forward="true" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
+        <state relative-caret-position="304">
+          <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" selection-end-column="89" />
         </state>
       </provider>
     </entry>

@@ -166,7 +166,7 @@ sudo apt-get install libdb4.8-dev libdb4.8++-dev wget -y
 git clone $GITHUB_DL
 cd Crowdcoin
 ./autogen.sh
-./configure --without-gui ./configure.sh --without-gui --with-boost-libdir=/usr/local/lib
+./configure --without-gui --with-boost-libdir=/usr/local/lib
 make -j
 make install
 cp
