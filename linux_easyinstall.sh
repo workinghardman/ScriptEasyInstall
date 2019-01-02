@@ -156,6 +156,7 @@ sudo apt-get install pwgen
 sudo apt-get install libzmq3-dev libminiupnpc-dev libssl-dev libevent-dev -y
 sudo apt-get install build-essential libtool autotools-dev automake pkg-config -y
 sudo apt-get install libssl-dev libevent-dev bsdmainutils software-properties-common -y
+sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y
 sudo apt-get install libboost-all-dev -y
 
 
