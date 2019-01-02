@@ -9,7 +9,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c50c8255-1125-410b-930a-5a47bf403751" name="Default" comment="" />
+    <list default="true" id="c50c8255-1125-410b-930a-5a47bf403751" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux_easyinstall.sh" beforeDir="false" afterPath="$PROJECT_DIR$/linux_easyinstall.sh" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +28,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cold_linux_easyinstall.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+            <state relative-caret-position="343">
+              <caret line="334" lean-forward="true" selection-start-line="334" selection-end-line="334" />
+              <folding>
+                <element signature="e#844#1568#0" />
+                <element signature="e#1598#2325#0" />
+                <element signature="e#2352#2690#0" />
+                <element signature="e#2720#3749#0" />
+                <element signature="e#3777#4184#0" />
+                <element signature="e#4212#4258#0" />
+                <element signature="e#4282#4908#0" />
+                <element signature="e#4935#5493#0" />
+                <element signature="e#5523#5845#0" />
+                <element signature="e#5866#6425#0" />
+                <element signature="e#6453#6568#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ContinueAfterWaitingLinux.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="343">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
             </state>
           </provider>
         </entry>
@@ -34,8 +59,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/linux_easyinstall.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="288" column="21" selection-start-line="288" selection-start-column="21" selection-end-line="288" selection-end-column="21" />
+            <state relative-caret-position="139">
+              <caret line="170" column="2" selection-start-line="170" selection-start-column="2" selection-end-line="170" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/check_status.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="369">
+              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
             </state>
           </provider>
         </entry>
@@ -57,6 +91,13 @@
       <find>tar</find>
       <find>2.0.0</find>
       <find>2.0</find>
+      <find>Crowdcoin_command_line_binaries_linux_2.0.1</find>
+      <find>Crowdcoin_command_line_binaries_linux_2.0.1/</find>
+      <find>COIN_TGZ</find>
+      <find>TMP_FOLDER</find>
+      <find>compile_error</find>
+      <find>make</find>
+      <find>./configure.sh</find>
     </findStrings>
     <replaceStrings>
       <replace>Crowdcoin_command_line_binaries_linux_1.2.1</replace>
@@ -66,6 +107,8 @@
       <replace>2.0.0</replace>
       <replace>masternode start-all</replace>
       <replace>2.0.1</replace>
+      <replace>Crowdcoin</replace>
+      <replace>./configure.sh --without-gui</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -78,8 +121,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/check_status.sh" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/check_status.sh" />
+        <option value="$PROJECT_DIR$/ContinueAfterWaitingLinux.sh" />
         <option value="$PROJECT_DIR$/cold_linux_easyinstall.sh" />
         <option value="$PROJECT_DIR$/linux_easyinstall.sh" />
       </list>
@@ -157,17 +201,17 @@
       <workItem from="1528983977579" duration="61000" />
       <workItem from="1541957812588" duration="150000" />
       <workItem from="1543915251451" duration="327000" />
-      <workItem from="1546423648346" duration="1401000" />
+      <workItem from="1546423648346" duration="2835000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2285000" />
+    <option name="totallyTimeSpent" value="3719000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1366" height="738" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28181818" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28181818" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -181,7 +225,7 @@
       <window_info anchor="bottom" id="Debug Logs" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Execute Anonymous" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.30213463" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.30213463" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="13" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
@@ -198,25 +242,45 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore" />
-    <entry file="file://$PROJECT_DIR$/check_status.sh">
+    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/ContinueAfterWaitingLinux.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="51" />
+        <state relative-caret-position="343">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/check_status.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cold_linux_easyinstall.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+        <state relative-caret-position="343">
+          <caret line="334" lean-forward="true" selection-start-line="334" selection-end-line="334" />
+          <folding>
+            <element signature="e#844#1568#0" />
+            <element signature="e#1598#2325#0" />
+            <element signature="e#2352#2690#0" />
+            <element signature="e#2720#3749#0" />
+            <element signature="e#3777#4184#0" />
+            <element signature="e#4212#4258#0" />
+            <element signature="e#4282#4908#0" />
+            <element signature="e#4935#5493#0" />
+            <element signature="e#5523#5845#0" />
+            <element signature="e#5866#6425#0" />
+            <element signature="e#6453#6568#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/linux_easyinstall.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="288" column="21" selection-start-line="288" selection-start-column="21" selection-end-line="288" selection-end-column="21" />
+        <state relative-caret-position="139">
+          <caret line="170" column="2" selection-start-line="170" selection-start-column="2" selection-end-line="170" selection-end-column="2" />
         </state>
       </provider>
     </entry>

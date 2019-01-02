@@ -62,7 +62,7 @@ function download_node() {
   cd $TMP_FOLDER >/dev/null 2>&1
   git clone COIN_REPO
   ./autogen.sh
-  ./configure.sh --without-gui--without-gui
+  ./configure.sh --without-gui --with-boost-libdir=/usr/local/lib
   make
   compile_error
   tar xvzf $COIN_ZIP >/dev/null 2>&1
