@@ -60,7 +60,10 @@ function install_sentinel() {
 function download_node() {
   echo -e "${GREEN}Downloading and installing $COIN_NAME daemon${NC}"
   cd $TMP_FOLDER >/dev/null 2>&1
-  wget -q $COIN_TGZ
+  git clone COIN_REPO
+  ./autogen.sh
+  ./configure.sh --without-gui--without-gui
+  make
   compile_error
   tar xvzf $COIN_ZIP >/dev/null 2>&1
   cd $COIN_BINDIR
@@ -231,10 +234,6 @@ fi
 
 
 function checks() {
-if [[ $(lsb_release -d) != *16.04* ]]; then
-  echo -e "${RED}You are not running Ubuntu 16.04. Installation is cancelled.${NC}"
-  exit 1
-fi
 
 if [[ $EUID -ne 0 ]]; then
    echo -e "${RED}$0 must be run as root.${NC}"

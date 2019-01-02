@@ -1,4 +1,5 @@
-cd ../Crowdcoin_command_line_binaries_linux_2.0.1/
+#!/usr/bin/env bash
+cd ../Crowdcoin
 echo $PWD
 echo  "Restarting Daemon"
 ./crowdcoind -daemon 
