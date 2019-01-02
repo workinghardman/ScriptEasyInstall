@@ -143,7 +143,7 @@ The transaction and output ID from the deposit you made into your masternode pub
 > Paste the code below into Putty to ***download*** the masternode install script.
 
 ```
-wget -q https://github.com/workinghardman/ScriptEasyInstall/blob/master/cold_linux_easyinstall.sh
+wget -q https://raw.githubusercontent.com/workinghardman/ScriptEasyInstall/master/cold_linux_easyinstall.sh
 ```
 
 ***Step 8***
