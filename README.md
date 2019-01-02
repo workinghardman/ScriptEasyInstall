@@ -230,9 +230,9 @@ These are the default directories for the data directory:
 * Mac: ~/Library/Application Support/crowdcoinbrain
 * Windows: C:\Users\YOUR_USERNAME\AppData\Roaming\crowdcoinbrain
 
-> ***Q2: I have 1001 CRC, why is my masternode outputs blank?***
+> ***Q2: I have 1000001 CRC, why is my masternode outputs blank?***
 
-You need to create a new address in your wallet, label it, and send EXACTLY ***1000 CRC*** to your new address. Do NOT check the box that says ***Subtract fee from amount***
+You need to create a new address in your wallet, label it, and send EXACTLY ***1000000 CRC*** to your new address. Do NOT check the box that says ***Subtract fee from amount***
 
 > ***Q3: How do i enable the masternodes tab?***
 
