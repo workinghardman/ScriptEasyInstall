@@ -2,36 +2,36 @@
 cd ../Crowdcoin
 echo $PWD
 echo  "Restarting Daemon"
-./crowdcoind -daemon 
+crowdcoind -daemon
 echo "Now waiting Masternode Sync and collateral confirmation"
 echo "Checking every 5 seconds ..."
 spin='-\|/'
 while [ ${#masternodeOutputs} -le 3 ]; do
         i=$(( (i+1) %4 ))
-        block=`./crowdcoin-cli getinfo | grep block | tr -d ,`
-        balance=`./crowdcoin-cli getbalance`
+        block=`crowdcoin-cli getinfo | grep block | tr -d ,`
+        balance=`crowdcoin-cli getbalance`
         printf "\r$block | Balance : $balance ${spin:$i:1}"
         sleep 5
-        masternodeOutputs=`./crowdcoin-cli masternode outputs | tr -d "{}:\""`
+        masternodeOutputs=`crowdcoin-cli masternode outputs | tr -d "{}:\""`
 done
 echo "OK, Transaction ID found :  $masternodeOutputs"
 echo "Stopping CrowdCoin daemon to update Masternode configuration file..."
-./crowdcoin-cli stop
+crowdcoin-cli stop
 sleep 10
 locateMasternode=~/.crowdcoinbrain/masternode.conf
 masternodeConfSample="mn1 127.0.0.1:8585 $masternodeGenKey $masternodeOutputs"
 echo $masternodeConfSample >> $locateMasternode
 echo "Masternode configuration updated. Waiting 60 seconds before restarting..."
 sleep 60
-./crowdcoind -daemon
+crowdcoind -daemon
 sleep 10
-masternodeStartOutput=$(./crowdcoin-cli masternode start-all)
+masternodeStartOutput=$(crowdcoin-cli masternode start-all)
 echo $masternodeStartOutput
 while [[ ! ($masternodeStartOutput = *"started"*) ]]; do
         i=$(( (i+1) %4 ))
-        block=`./crowdcoin-cli getinfo | grep block | tr -d ,`
-        balance=`./crowdcoin-cli getbalance`
-        masternodeStartOutput=$(./crowdcoin-cli masternode start-all)
+        block=`crowdcoin-cli getinfo | grep block | tr -d ,`
+        balance=`crowdcoin-cli getbalance`
+        masternodeStartOutput=$(crowdcoin-cli masternode start-all)
         printf "\r$block | Balance : $balance ${spin:$i:1} : $masternodeStartOutput                "
         sleep 5
 done

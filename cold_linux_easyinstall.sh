@@ -63,7 +63,8 @@ function download_node() {
   git clone COIN_REPO
   ./autogen.sh
   ./configure.sh --without-gui --with-boost-libdir=/usr/local/lib
-  make
+  make -j
+  make install
   compile_error
   tar xvzf $COIN_ZIP >/dev/null 2>&1
   cd $COIN_BINDIR

@@ -167,7 +167,8 @@ git clone $GITHUB_DL
 cd Crowdcoin
 ./autogen.sh
 ./configure --without-gui ./configure.sh --without-gui --with-boost-libdir=/usr/local/lib
-make -j 4
+make -j
+make install
 cp
 
 
@@ -180,7 +181,7 @@ if pgrep -x "crowdcoind" > /dev/null
 then
     cd ~/Crowdcoin
     echo "Found crowdcoind is running, stopping it..."
-    ./crowdcoin-cli stop
+    crowdcoin-cli stop
     echo "Waiting 60 seconds before continuing..." 
     sleep 60
 fi
@@ -198,24 +199,24 @@ rpcpassword=${rpcpass}" >> crowdcoin.conf
 
 cd ~/Crowdcoin
 echo "Starting Crowdcoind from $PWD"
-./crowdcoind -daemon
+crowdcoind -daemon
 sleep 60
-crowdcoinGetInfoOutput=$(./crowdcoin-cli getinfo)
+crowdcoinGetInfoOutput=$(crowdcoin-cli getinfo)
 while [[ ! ($crowdcoinGetInfoOutput = *"version"*) ]]; do
 	sleep 60
 	$crowdcoinGetInfoOutput
 done	
-masterNodeAccountAddress=$(./crowdcoin-cli getaccountaddress 0)
-masternodeGenKey=$(./crowdcoin-cli masternode genkey)
+masterNodeAccountAddress=$(crowdcoin-cli getaccountaddress 0)
+masternodeGenKey=$(crowdcoin-cli masternode genkey)
 echo "----------------------------------------------------------------------"
 echo "masterNodeAccountAddress : $masterNodeAccountAddress"
 echo "masternodeGenKey : $masternodeGenKey"
 echo "----------------------------------------------------------------------"
 echo ""
 echo "Stopping CrowdCoin daemon to update configuration file..."
-./crowdcoin-cli stop
+crowdcoin-cli stop
 sleep 60
-#write all data into ../crowdcoind
+#write all data into .crowdcoind
 locateCrowdCoinConf=~/.crowdcoinbrain/crowdcoin.conf
 cat >> $locateCrowdCoinConf <<EOF
 rpcbind=127.0.0.1
@@ -235,10 +236,10 @@ EOF
 echo "Configuration $locateCrowdCoinConf updated."
 echo " Waiting 60 seconds before restarting..."
 sleep 60
-./crowdcoind -daemon
+crowdcoind -daemon
 sleep 10
 ## now on you have to get the privatekeY and the address 0
-masternodeOutputs=`./crowdcoin-cli masternode outputs | tr -d "{}:\""`
+masternodeOutputs=`crowdcoin-cli masternode outputs | tr -d "{}:\""`
 echo "-----------------------------------------------"
 echo "Wait Masternode Syncronization..."
 echo "-----------------------------------------------"
@@ -251,30 +252,30 @@ echo "Checking every 5 seconds ..."
 spin='-\|/'
 while [ ${#masternodeOutputs} -le 3 ]; do
         i=$(( (i+1) %4 ))
-        block=`./crowdcoin-cli getinfo | grep block | tr -d ,`
-        balance=`./crowdcoin-cli getbalance`
+        block=`crowdcoin-cli getinfo | grep block | tr -d ,`
+        balance=`crowdcoin-cli getbalance`
         printf "\r$block | Balance : $balance ${spin:$i:1}"
         sleep 5
-        masternodeOutputs=`./crowdcoin-cli masternode outputs | tr -d "{}:\""`
+        masternodeOutputs=`crowdcoin-cli masternode outputs | tr -d "{}:\""`
 done
 echo "OK, Transaction ID found :  $masternodeOutputs"
 echo "Stopping CrowdCoin daemon to update Masternode configuration file..."
-./crowdcoin-cli stop
+crowdcoin-cli stop
 sleep 10
 locateMasternode=~/.crowdcoinbrain/masternode.conf
 masternodeConfSample="mn1 127.0.0.1:$CRCPORT $masternodeGenKey $masternodeOutputs"
 echo $masternodeConfSample >> $locateMasternode
 echo "Masternode configuration updated. Waiting 60 seconds before restarting..."
 sleep 60
-./crowdcoind -daemon
+crowdcoind -daemon
 sleep 10
-masternodeStartOutput=$(./crowdcoin-cli masternode start-all)
+masternodeStartOutput=$(crowdcoin-cli masternode start-all)
 echo $masternodeStartOutput
 while [[ ! ($masternodeStartOutput = *"started"*) ]]; do
         i=$(( (i+1) %4 ))
-        block=`./crowdcoin-cli getinfo | grep block | tr -d ,`
-        balance=`./crowdcoin-cli getbalance`
-        masternodeStartOutput=$(./crowdcoin-cli masternode start-all)
+        block=`crowdcoin-cli getinfo | grep block | tr -d ,`
+        balance=`crowdcoin-cli getbalance`
+        masternodeStartOutput=$(crowdcoin-cli masternode start-all)
         printf "\r$block | Balance : $balance ${spin:$i:1} : $masternodeStartOutput                "
         sleep 5
 done

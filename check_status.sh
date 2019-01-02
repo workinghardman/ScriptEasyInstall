@@ -5,14 +5,14 @@
 # 
 # it check your masternode status by runing the following command
 #  
-#  "./crowdcoin-cli masternode status" to grab your tx-id
-#  "./crowdcoin-cli masternode list" to search for your node state
+#  "crowdcoin-cli masternode status" to grab your tx-id
+#  "crowdcoin-cli masternode list" to search for your node state
 #
 # then it's parse the output return returned
 # 
 # if the masternode is in "NEW_START_REQUIRED" it will lanch the command
 # 
-# ./crowdcoin-cli masternode start-all
+# crowdcoin-cli masternode start-all
 # 
 # this Script suppose that you install the masternode software using the 
 # linux_easyinstall.sh from https://github.com/crowdcoinChain/ScriptEasyInstall
@@ -38,7 +38,7 @@ if [ -d "$BIN_DIR" ]; then
             tx=${str_array[1]#CTxIn\(COutPoint\(}
             id=${str_array[2]:0:1}
             #echo $tx-$id
-            masternodelist=`./crowdcoin-cli masternode list | grep "$tx-$id" | tr -d "\":," | cut -d : -f 1`
+            masternodelist=`crowdcoin-cli masternode list | grep "$tx-$id" | tr -d "\":," | cut -d : -f 1`
             masternodestate_line="$masternodelist"
             if [[ $masternodestate_line = "" ]]; then
                     echo "$TIMESTAMP : ERROR : can not found masternode with transaction-id : $tx-$id"
@@ -50,7 +50,7 @@ if [ -d "$BIN_DIR" ]; then
                     masternodestate=${str_array[1]}
                     #if [[ $masternodestate = *ENABLE* ]]; then
                     if [[ $masternodestate = *NEW_START_REQUIRED* ]] || [[ $masternodestate = *error* ]] ; then
-                            restart="$(./crowdcoin-cli masternode start-all)"
+                            restart="$(crowdcoin-cli masternode start-all)"
                             echo "$TIMESTAMP : Masternode start command send : $restart"
                     else
                             #echo $masternodestate
