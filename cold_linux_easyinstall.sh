@@ -114,8 +114,8 @@ EOF
 
 function create_config() {
   mkdir $CONFIGFOLDER >/dev/null 2>&1
-  RPCUSER=crcuser10
-  RPCPASSWORD=crcuser10pass
+  RPCUSER=crcrpcuser
+  RPCPASSWORD=crcrpcuserpass
   cat << EOF > $CONFIGFOLDER/$CONFIG_FILE
 rpcuser=$RPCUSER
 rpcpassword=$RPCPASSWORD
