@@ -20,7 +20,7 @@ NODEIP=$(curl -s4 icanhazip.com)
 
 BLUE="\033[0;34m"
 YELLOW="\033[0;33m"
-CYAN="\033[0;36m".
+CYAN="\033[0;36m"
 PURPLE="\033[0;35m"
 RED='\033[0;31m'
 GREEN="\033[0;32m"
@@ -35,8 +35,8 @@ purgeOldInstallation() {
     #remove old ufw port allow
     sudo ufw delete allow 8585/tcp > /dev/null 2>&1
     #remove old files
-<------>rm /root/$CONFIGFOLDER/bootstrap.dat.old > /dev/null 2>&1
-<------>cd /usr/local/bin && sudo rm $COIN_CLI $COIN_DAEMON > /dev/null 2>&1 && cd
+        rm /root/$CONFIGFOLDER/bootstrap.dat.old > /dev/null 2>&1
+        cd /usr/local/bin && sudo rm $COIN_CLI $COIN_DAEMON > /dev/null 2>&1 && cd
     cd /usr/bin && sudo rm $COIN_CLI $COIN_DAEMON > /dev/null 2>&1 && cd
         sudo rm -rf ~/$CONFIGFOLDER > /dev/null 2>&1
     #remove binaries and Crowdcoin utilities
@@ -114,8 +114,8 @@ EOF
 
 function create_config() {
   mkdir $CONFIGFOLDER >/dev/null 2>&1
-  RPCUSER=crcrpcuser
-  RPCPASSWORD=crcrpcuserpass
+  RPCUSER=crcuser10
+  RPCPASSWORD=crcuser10pass
   cat << EOF > $CONFIGFOLDER/$CONFIG_FILE
 rpcuser=$RPCUSER
 rpcpassword=$RPCPASSWORD
@@ -167,7 +167,6 @@ maxconnections=256
 masternode=1
 externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
-
 #ADDNODES
 addnode=212.237.20.95
 addnode=182.139.220.82
@@ -226,6 +225,8 @@ function get_ip() {
     NODEIP=${NODE_IPS[0]}
   fi
 }
+
+
 function compile_error() {
 if [ "$?" -gt "0" ];
  then
@@ -237,7 +238,7 @@ fi
 
 function checks() {
 if [[ $(lsb_release -d) != *18.04* ]]; then
-  echo -e "${RED}You are not running Ubuntu 18.04. Installation is cancelled.${NC}"
+  echo -e "${RED}You are not running Ubuntu 16.04. Installation is cancelled.${NC}"
   exit 1
 fi
 
@@ -282,6 +283,7 @@ bsdmainutils libdb4.8++-dev libminiupnpc-dev libgmp3-dev ufw pkg-config libevent
 fi
 clear
 }
+
 function important_information() {
  clear
  echo
@@ -337,5 +339,3 @@ checks
 prepare_system
 download_node
 setup_node
-
-
