@@ -44,8 +44,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/linux_easyinstall.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="155" column="53" lean-forward="true" selection-start-line="155" selection-start-column="53" selection-end-line="155" selection-end-column="53" />
+            <state relative-caret-position="154">
+              <caret line="158" column="154" selection-start-line="158" selection-start-column="154" selection-end-line="158" selection-end-column="154" />
             </state>
           </provider>
         </entry>
@@ -193,12 +193,12 @@
       <workItem from="1541957812588" duration="150000" />
       <workItem from="1543915251451" duration="327000" />
       <workItem from="1546423648346" duration="2835000" />
-      <workItem from="1546427965446" duration="3829000" />
+      <workItem from="1546427965446" duration="4132000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7548000" />
+    <option name="totallyTimeSpent" value="7851000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1366" height="738" extended-state="0" />
@@ -259,8 +259,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/linux_easyinstall.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="155" column="53" lean-forward="true" selection-start-line="155" selection-start-column="53" selection-end-line="155" selection-end-column="53" />
+        <state relative-caret-position="154">
+          <caret line="158" column="154" selection-start-line="158" selection-start-column="154" selection-end-line="158" selection-end-column="154" />
         </state>
       </provider>
     </entry>

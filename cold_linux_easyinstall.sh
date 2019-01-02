@@ -7,7 +7,7 @@ COIN_DAEMON='crowdcoind'
 COIN_VERSION='v2.0.1'
 COIN_CLI='crowdcoin-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_REPO='https://github.com/crowdcoinChain/Crowdcoin.git'
+COIN_REPO='https://github.com/crowdcoinChain/Crowdcoin'
 COIN_TGZ='https://github.com/crowdcoinChain/Crowdcoin/releases/download/2.0.1/Crowdcoin_command_line_binaries_linux_2.0.1.tar.gz'
 COIN_BINDIR='Crowdcoin_command_line_binaries_linux_2.0.1'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
@@ -61,6 +61,7 @@ function download_node() {
   echo -e "${GREEN}Downloading and installing $COIN_NAME daemon${NC}"
   cd $TMP_FOLDER >/dev/null 2>&1
   git clone COIN_REPO
+  cd Crowdcoin
   ./autogen.sh
   ./configure.sh --without-gui --with-boost-libdir=/usr/local/lib
   make -j
