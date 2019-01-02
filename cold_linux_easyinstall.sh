@@ -314,9 +314,6 @@ function important_information() {
  echo -e "${RED}crowdcoin-cli getinfo${NC}"
  echo -e "${RED}crowdcoin-cli mnsync status${NC}"
  echo -e "${BLUE}================================================================================================================================${NC}"
- echo -e "${YELLOW}DONATION (CRC): CV8WdSZKp4rcTUxMLoPg8WcS1PdqEjgREV${NC}"
- echo -e "${YELLOW}DONATION (ETH): 0x06E4454CB946038E3252eD1d5B3fDafb85E089F5${NC}"
- echo -e "${BLUE}================================================================================================================================${NC}"
 }
 
 function setup_node() {
