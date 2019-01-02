@@ -177,7 +177,7 @@ echo "==============================================="
 echo "" 
 if pgrep -x "crowdcoind" > /dev/null
 then
-    cd ~/Crowdcoin_command_line_binaries_linux_2.0.1
+    cd ~/Crowdcoin
     echo "Found crowdcoind is running, stopping it..."
     ./crowdcoin-cli stop
     echo "Waiting 60 seconds before continuing..." 
@@ -195,7 +195,7 @@ rpcpass=`pwgen -1 20 -n`
 echo "rpcuser=${rpcuser}
 rpcpassword=${rpcpass}" >> crowdcoin.conf
 
-cd ~/Crowdcoin_command_line_binaries_linux_2.0.1
+cd ~/Crowdcoin
 echo "Starting Crowdcoind from $PWD"
 ./crowdcoind -daemon
 sleep 60
