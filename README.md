@@ -274,5 +274,3 @@ Loading wallet... (10.59 %)
 ```
 Just wait for the wallet synchronization. You can see how much left Loading wallet... (10.59 %)
 ***
-
-**Curator of the ReadME:** https://github.com/ronaldr1987/
