@@ -119,8 +119,8 @@ EOF
 
 function create_config() {
   mkdir $CONFIGFOLDER >/dev/null 2>&1
-  RPCUSER=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
-  RPCPASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w22 | head -n1)
+  RPCUSER=crcrpcuser
+  RPCPASSWORD=crcrpcuserpass
   cat << EOF > $CONFIGFOLDER/$CONFIG_FILE
 rpcuser=$RPCUSER
 rpcpassword=$RPCPASSWORD
@@ -174,6 +174,13 @@ externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
 
 #ADDNODES
+addnode=212.237.20.95
+addnode=182.139.220.82
+addnode=77.164.177.129
+addnode=95.179.211.28
+addnode=124.122.28.146
+addnode=95.216.77.8
+addnode=136.144.177.141
 addnode=96.126.124.245
 addnode=121.200.4.203
 addnode=188.165.52.69
@@ -186,7 +193,7 @@ addnode=18.217.78.145:8585
 addnode=23.92.30.230:8585
 addnode=35.190.182.68:8585
 addnode=80.209.236.4:8585
-addnode=91.201.40.89:8585 
+addnode=91.201.40.89:8585
 
 EOF
 }
