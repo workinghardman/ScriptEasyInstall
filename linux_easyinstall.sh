@@ -34,16 +34,18 @@ else
     VER=$(uname -r)
 fi
 
-if [ "$OS" == "Ubuntu" ] && [ "$VER" == "16.04" ]; then
-  echo "$OS $VER : OK"
-else
-  echo "This script should be run on Ubuntu 16.04 only"
-  exit 1
-fi
+#compatible majority of linux distros
+
+#if [ "$OS" == "Ubuntu" ] && [ "$VER" == "16.04" ]; then
+#  echo "$OS $VER : OK"
+#else
+#  echo "This script should be run on Ubuntu 16.04 only"
+#  exit 1
+#fi
 
 
 ADD_SWAP=N
-GITHUB_DL=https://github.com/crowdcoinChain/Crowdcoin/releases/download/2.0.1/Crowdcoin_command_line_binaries_linux_2.0.1.tar.gz
+GITHUB_DL=https://github.com/crowdcoinChain/Crowdcoin/
 RPCPORT=11998
 CRCPORT=8585
 
@@ -155,12 +157,18 @@ sudo apt-get install libzmq3-dev libminiupnpc-dev libssl-dev libevent-dev -y
 sudo apt-get install build-essential libtool autotools-dev automake pkg-config -y
 sudo apt-get install libssl-dev libevent-dev bsdmainutils software-properties-common -y
 sudo apt-get install libboost-all-dev -y
+
+
 sudo add-apt-repository ppa:bitcoin/bitcoin -y
 sudo apt-get update
 sudo apt-get install libdb4.8-dev libdb4.8++-dev wget -y
+#compile on demand
+git clone $GITHUB_DL
+cd Crowdcoin
+./autogen.sh
+./configure
+make
 
-wget $GITHUB_DL
-tar -zxvf ./Crowdcoin_command_line_binaries_linux_2.0.1.tar.gz
 
 echo ""
 echo "==============================================="
@@ -220,22 +228,6 @@ staking=0
 discover=1
 masternode=1
 masternodeprivkey=$masternodeGenKey
-addnode=96.126.124.245
-addnode=121.200.4.203
-addnode=188.165.52.69
-addnode=207.148.121.239
-addnode=84.17.23.43:8585
-addnode=18.220.138.90:8585
-addnode=86.57.164.166:8585
-addnode=86.57.164.146:8585
-addnode=18.217.78.145:8585
-addnode=23.92.30.230:8585
-addnode=35.190.182.68:8585
-addnode=80.209.236.4:8585
-addnode=91.201.40.89:8585 
-addnode=80.211.157.98:8585
-addnode=80.211.63.80:8585
-addnode=80.211.164.94:8585
 addnode=54.36.163.216:8585
 EOF
 
