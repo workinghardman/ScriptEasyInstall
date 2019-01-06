@@ -279,7 +279,7 @@ Loading wallet... (10.59 %)
 ```
 Just wait for the wallet synchronization. You can see how much left Loading wallet... (10.59 %)
 
-> ***Q10:Failed to verify MNB when running MN***
+> ***Q10: Failed to verify MNB when running MN***
 
 Just wait for enough confirmations (about 30 min after 1000 000 crc transaction to your MN address)
 ***
