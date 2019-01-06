@@ -139,6 +139,11 @@ The transaction and output ID from the deposit you made into your masternode pub
 ***Step 6*** 
 > Once you have clicked on open it will open a security alert: click ***yes***.  
 
+***It is better to update your ubuntu pkgs before start install****
+```
+apt-get update -y && apt-get upgrade -y
+```
+
 ***Step 7***
 > Paste the code below into Putty to ***download*** the masternode install script.
 
