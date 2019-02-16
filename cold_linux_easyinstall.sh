@@ -16,7 +16,7 @@ SENTINEL_REPO='https://github.com/crowdcoinChain/sentinelLinux.git'
 COIN_NAME='crowdcoin'
 COIN_PORT=8585
 RPC_PORT=11998
-NODEIP=$(curl -s4 icanhazip.com)
+NODEIP=($(ip addr | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'))
 
 BLUE="\033[0;34m"
 YELLOW="\033[0;33m"
